@@ -1,9 +1,9 @@
 
-# EcoScan+ 🚀
+# EcoScan+ 
 
 EcoScan+ is a smart city sustainability and civic engagement app built with [Expo](https://expo.dev) and React Native. This project leverages modern Expo workflows, EAS Update, and a clean, accessible UI for rapid prototyping and deployment.
 
-## 🚦 Quick Start
+##  Quick Start
 
 1. **Install dependencies**
    ```bash
@@ -21,14 +21,14 @@ EcoScan+ is a smart city sustainability and civic engagement app built with [Exp
    npx eas update
    ```
 
-## 🗂️ Project Structure
+##  Project Structure
 
 - `app/` — All screens and navigation (file-based routing)
 - `components/` — Reusable UI components (including ThemeContext)
 - `assets/` — Images, icons, and static files
 - `app.json` — Expo configuration
 
-## 🌗 Features
+##  Features
 
 - Global day/night theme toggle (Dashboard)
 - Camera integration (expo-camera)
@@ -36,13 +36,13 @@ EcoScan+ is a smart city sustainability and civic engagement app built with [Exp
 - Rewards and civic engagement flows
 - Modern, accessible UI with vector icons
 
-## 🛠️ Development
+##  Development
 
 - Edit screens in the `app/` directory.
 - Use the ThemeContext for consistent theming.
 - Hot reload enabled for rapid iteration.
 
-## 🧹 Reset Project
+##  Reset Project
 
 To start fresh:
 ```bash
@@ -50,13 +50,16 @@ npm run reset-project
 ```
 Moves starter code to `app-example/` and creates a blank `app/` directory.
 
-## 📚 Resources
+##  Resources
 
 - [Expo Documentation](https://docs.expo.dev/)
 - [Expo Router Guide](https://docs.expo.dev/router/introduction/)
 - [EAS Update](https://docs.expo.dev/eas-update/introduction/)
 
-## 💬 Community
+## app.json
+eas.json
+tsconfig.json
+eslint.config.js Community
 
 - [Expo Discord](https://chat.expo.dev)
 - [Expo GitHub](https://github.com/expo/expo)

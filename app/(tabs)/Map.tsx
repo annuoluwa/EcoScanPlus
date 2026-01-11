@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
-import BottomNavBar from '../../components/BottomNavBar';
 import { useTheme } from '../../components/ThemeContext';
 import { Colors } from '../../constants/theme';
+
+let MapView, Marker;
+if (Platform.OS !== 'web') {
+	const Maps = require('react-native-maps');
+	MapView = Maps.default;
+	Marker = Maps.Marker;
+}
 
 // Mock user and recycling center locations
 const userLocation = { latitude: 40.7128, longitude: -74.006 };
@@ -20,14 +25,21 @@ export default function MapScreen() {
 		longitudeDelta: 0.01,
 	});
 	const { theme } = useTheme();
+	if (Platform.OS === 'web') {
+		return (
+			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+				<Text>Map is not available on web.</Text>
+			</View>
+		);
+	}
 	return (
-		<View style={[styles.container, { backgroundColor: Colors[theme].background }]}>
-			<View style={[styles.headerCard, { backgroundColor: Colors[theme].tint }]}>
-				<Text style={[styles.title, { color: Colors[theme].background }]}>
+		<View style={[styles.container, { backgroundColor: Colors[theme].background }]}> 
+			<View style={[styles.headerCard, { backgroundColor: Colors[theme].tint }]}> 
+				<Text style={[styles.title, { color: Colors[theme].background }]}> 
 					Nearby Recycling Centers
 				</Text>
 			</View>
-			<View style={styles.mapCard}>
+			<View style={styles.mapCard}> 
 				<MapView
 					style={styles.map}
 					initialRegion={region}
@@ -45,7 +57,6 @@ export default function MapScreen() {
 					))}
 				</MapView>
 			</View>
-			<BottomNavBar />
 		</View>
 	);
 }

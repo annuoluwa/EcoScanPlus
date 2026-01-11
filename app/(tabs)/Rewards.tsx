@@ -69,14 +69,14 @@ export default function RewardsScreen() {
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: Colors[theme].background }]}>
+    <View style={[styles.container, { backgroundColor: Colors[theme].background }]}> 
       <Text style={[styles.pageTitle, { color: Colors[theme].text }]}>Your Rewards</Text>
 
       <FlatList
         data={REWARDS}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={[styles.card, { backgroundColor: theme === 'dark' ? '#222' : '#fff' }]}>
+          <View style={[styles.card, { backgroundColor: theme === 'dark' ? '#222' : '#fff' }]}> 
             {renderIcon(item.type)}
 
             <Text style={[styles.titleText, { color: Colors[theme].text }]}>{item.title}</Text>

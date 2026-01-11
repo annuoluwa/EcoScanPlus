@@ -116,9 +116,15 @@ export default function ScanItemScreen() {
         >
           {result.recyclable ? 'Recyclable' : 'Not Recyclable'}
         </Text>
-        <Text style={[styles.instructions, { color: Colors[theme].icon }]}>
+        <Text style={[styles.instructions, { color: Colors[theme].icon }]}> 
           {result.instructions}
         </Text>
+        {/* Points message after dropoff */}
+        {result.recyclable && (
+          <Text style={{ color: Colors[theme].tint, fontWeight: 'bold', marginVertical: 8 }}>
+            You will get 10 EcoPoints when you drop off this item!
+          </Text>
+        )}
         <Text style={[styles.centersTitle, { color: Colors[theme].text }]}>Nearby Recycling Centers</Text>
         {result.recyclingCenters.map((center) => (
           <TouchableOpacity
@@ -139,6 +145,12 @@ export default function ScanItemScreen() {
           }}
         >
           <Text style={styles.buttonText}>Scan Another Item</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, { backgroundColor: '#388e3c' }]}
+          onPress={() => router.replace('/(tabs)/Dashboard')}
+        >
+          <Text style={styles.buttonText}>Back to Dashboard</Text>
         </TouchableOpacity>
       </View>
     );

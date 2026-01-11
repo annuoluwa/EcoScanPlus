@@ -2,9 +2,8 @@ import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import BottomNavBar from '../../components/BottomNavBar';
-import ThemeSwitcher from '../../components/ThemeSwitcher';
 import { useTheme } from '../../components/ThemeContext';
+import ThemeSwitcher from '../../components/ThemeSwitcher';
 import { Colors } from '../../constants/theme';
 
 const CARD_WIDTH = (Dimensions.get('window').width - 64) / 2;
@@ -30,15 +29,21 @@ export default function DashboardScreen() {
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: Colors[theme].background }]}>
+    <View style={[styles.container, { backgroundColor: Colors[theme].background }]}> 
+      <TouchableOpacity
+        style={{ position: 'absolute', top: 40, right: 16, zIndex: 10, backgroundColor: Colors[theme].tint, borderRadius: 8, paddingVertical: 8, paddingHorizontal: 16 }}
+        onPress={() => router.replace('/Login')}
+      >
+        <Text style={{ color: Colors[theme].background, fontWeight: 'bold', fontSize: 16 }}>Logout</Text>
+      </TouchableOpacity>
       <ThemeSwitcher />
       <Text style={[styles.welcome, { color: Colors[theme].text }]}>Welcome, {userName}!</Text>
       <View style={styles.statsRow}>
-        <View style={[styles.statBox, { backgroundColor: theme === 'dark' ? '#222' : '#fff' }]}>
+        <View style={[styles.statBox, { backgroundColor: theme === 'dark' ? '#222' : '#fff' }]}> 
           <Text style={[styles.statValue, { color: Colors[theme].tint }]}>{ecoPoints}</Text>
           <Text style={[styles.statLabel, { color: Colors[theme].icon }]}>EcoPoints</Text>
         </View>
-        <View style={[styles.statBox, { backgroundColor: theme === 'dark' ? '#222' : '#fff' }]}>
+        <View style={[styles.statBox, { backgroundColor: theme === 'dark' ? '#222' : '#fff' }]}> 
           <Text style={[styles.statValue, { color: Colors[theme].tint }]}>{reports}</Text>
           <Text style={[styles.statLabel, { color: Colors[theme].icon }]}>Reports</Text>
         </View>
@@ -62,7 +67,6 @@ export default function DashboardScreen() {
           <Text style={styles.cardDesc}>Scan and identify recyclables</Text>
         </TouchableOpacity>
       </View>
-      <BottomNavBar />
     </View>
   );
 }

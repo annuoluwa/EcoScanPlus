@@ -1,7 +1,8 @@
-import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { usePathname, useRouter } from 'expo-router';
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function BottomNavBar() {
   const router = useRouter();
@@ -13,7 +14,7 @@ export default function BottomNavBar() {
   const showRewards = pathname !== '/(tabs)/Rewards';
 
   return (
-    <View style={styles.bar}>
+    <SafeAreaView edges={["bottom"]} style={styles.bar}>
       {showDashboard && (
         <TouchableOpacity style={styles.btn} onPress={() => router.replace('/(tabs)/Dashboard')}>
           <FontAwesome5 name="home" size={22} color="#43a047" />
@@ -29,10 +30,8 @@ export default function BottomNavBar() {
           <FontAwesome5 name="trophy" size={22} color="#388e3c" />
         </TouchableOpacity>
       )}
-      <TouchableOpacity style={styles.btn} onPress={() => router.push('/(tabs)/Map')}>
-        <MaterialIcons name="location-on" size={22} color="#388e3c" />
-      </TouchableOpacity>
-    </View>
+      {/* Map button removed as requested */}
+    </SafeAreaView>
   );
 }
 

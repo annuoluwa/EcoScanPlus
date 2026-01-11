@@ -1,10 +1,7 @@
-import { ThemeProvider } from '../components/ThemeContext';
-import RootLayout from './_layout';
+// app/index.tsx
+import { Redirect } from 'expo-router';
 
-export default function App() {
-  return (
-    <ThemeProvider>
-      <RootLayout />
-    </ThemeProvider>
-  );
+export default function Index() {
+  return <Redirect href="/Splash" />;
 }
+

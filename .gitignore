@@ -41,3 +41,11 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Local Netlify folder
+.netlify
+
+app.json
+eas.json
+tsconfig.json
+eslint.config.js
