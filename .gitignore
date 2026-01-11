@@ -45,7 +45,3 @@ app-example
 # Local Netlify folder
 .netlify
 
-app.json
-eas.json
-tsconfig.json
-eslint.config.js
